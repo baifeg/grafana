@@ -68,3 +68,4 @@ debug.test
 *.orig
 
 /devenv/dashboards/bulk-testing/*.json
+/.project

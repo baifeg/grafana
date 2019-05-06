@@ -84,6 +84,7 @@ var (
 	EmailCodeValidMinutes            int
 	DataProxyWhiteList               map[string]bool
 	DisableBruteForceLoginProtection bool
+	DcosTokenName                    string
 
 	// Snapshots
 	ExternalSnapshotUrl   string
@@ -562,6 +563,7 @@ func (cfg *Cfg) Load(args *CommandLineArgs) error {
 	DisableGravatar = security.Key("disable_gravatar").MustBool(true)
 	cfg.DisableBruteForceLoginProtection = security.Key("disable_brute_force_login_protection").MustBool(false)
 	DisableBruteForceLoginProtection = cfg.DisableBruteForceLoginProtection
+	DcosTokenName = "dcos_token"
 
 	// read snapshots settings
 	snapshots := iniFile.Section("snapshots")

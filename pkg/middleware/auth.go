@@ -74,7 +74,7 @@ func RoleAuth(roles ...m.RoleType) macaron.Handler {
 
 func Auth(options *AuthOptions) macaron.Handler {
 	return func(c *m.ReqContext) {
-		if !c.IsSignedIn && options.ReqSignedIn && !c.AllowAnonymous {
+		if !c.IsSignedIn && options.ReqSignedIn && !c.AllowAnonymous && !HasValidToken(c) {
 			notAuthorized(c)
 			return
 		}
